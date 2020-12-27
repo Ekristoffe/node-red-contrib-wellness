@@ -7,7 +7,7 @@
 module.exports = function(RED) {
     const settings = RED.settings;
 
-    function parseMessage (node, context, msg) {
+    function parseMessage (node, context, timeoutStatus, msg) {
 
         const _topic = msg.topic.toLowerCase();
         let _temperature = context.get('temperature') || 20;
@@ -55,7 +55,7 @@ module.exports = function(RED) {
 
         node.on('input', function (msg) {
 
-            const data = parseMessage(node, context, msg);
+            const data = parseMessage(node, context, timeoutStatus, msg);
             /*
 			const _topic = msg.topic.toLowerCase();
 			let _temperature = context.get('temperature') || 20;
@@ -106,7 +106,7 @@ module.exports = function(RED) {
 
         node.on('input', function (msg) {
 
-            const data = parseMessage(node, context, msg);
+            const data = parseMessage(node, context, timeoutStatus, msg);
             /*
 			const _topic = msg.topic.toLowerCase();
 			let _temperature = context.get('temperature') || 20;
@@ -158,7 +158,7 @@ module.exports = function(RED) {
 
         node.on('input', function (msg) {
 
-            const data = parseMessage(node, context, msg);
+            const data = parseMessage(node, context, timeoutStatus, msg);
             /*
 			const _topic = msg.topic.toLowerCase();
 			let _temperature = context.get('temperature') || 20;
