@@ -14,7 +14,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Getting Started
 ---------------
 [Adding nodes to the palette](https://nodered.org/docs/user-guide/runtime/adding-nodes) - Node-RED Documentation
-	
+
 Documentation
 -------------
 ### - Heatstroke
