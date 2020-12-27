@@ -44,5 +44,5 @@ Project Informations
 [![GitHub](https://img.shields.io/github/license/ekristoffe/node-red-contrib-wellness)](https://github.com/ekristoffe/node-red-contrib-wellness/blob/master/LICENSE) 
 
 ### - Release Note
-* 0.0.1 (npm 0.0.1)	First release  
-* 0.0.2 (npm 0.0.2)	Update README.md
+*  0.0.1 (npm 0.0.1) First release  
+*  0.0.2 (npm 0.0.2) Update README.md
