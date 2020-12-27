@@ -1,3 +1,6 @@
+.git
+.gitignore
+.idea
+.npmignore
 node_modules
-info.txt
 workspace.code-workspace
