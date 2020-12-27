@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Flu-Index',{
+        category: 'wellness',
+        color: '#F3B567',
+        defaults: {
+            name: {value:""},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "function.svg",
+        label: function() {
+            return this.name||"Flu Index";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="Flu-Index">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="Flu-Index">
+    <p>Flu risk level is determined by air temperature and humidity.</p>
+	<p>
+		Users can estimate the risk of flu contagion while performing day-to-day activities:<br>
+		<table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
+			<thead style="background-color: #3f87a6; color: #fff;">
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Reference<br>temperature<br>WBGT*</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Heat stress precautions</td>
+				</tr>
+			</thead>
+			<tbody style="background-color: #e4f0f5;">
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">18 - </td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Very safe</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">12 - 17</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Safe</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">7 - 11</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Attention</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">- 6</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warning</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+</script>   

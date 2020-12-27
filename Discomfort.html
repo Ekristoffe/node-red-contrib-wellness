@@ -1,0 +1,63 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Discomfort-Index',{
+        category: 'wellness',
+        color: '#F3B567',
+        defaults: {
+            name: {value:""},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "function.svg",
+        label: function() {
+            return this.name||"Discomfort Index";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="Discomfort-Index">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="Discomfort-Index">
+	<p>The discomfort index is calculated from the air temperature and humidity.</p>
+	<p>
+        It help users realize the importance of maintaining a comfortable environment:<br>
+		<table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
+			<thead style="background-color: #3f87a6; color: #fff;">
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Discomfort index</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Thermal comfort</td>
+				</tr>
+			</thead>
+			<tbody style="background-color: #e4f0f5;">
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">85 –</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe heat</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">80 – 85</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Uncomfortably hot (sweating)</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">75 – 80</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warm</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">70 – 75</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Neutral</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">65 – 70</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Comfortable</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">– 65</td>
+					<td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Cold</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+</script>   

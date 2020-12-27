@@ -1,0 +1,31 @@
+{
+	"name": "node-red-contrib-wellness",
+	"version": "0.0.1",
+	"description": "Node-RED node that compute the environement wellness",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Ekristoffe/node-red-contrib-wellness"
+	},
+	"dependencies": {},
+	"keywords": [
+		"node-red",
+		"wellness",
+		"heatstroke",
+		"discomfort",
+		"flu",
+		"index"
+	],
+	"node-red": {
+		"nodes": {
+			"Heatstroke": "Heatstroke.js",
+			"Discomfort": "Discomfort.js",
+			"Flu": "Flu.js"
+		}
+	},
+	"author": {
+		"name": "Christophe Icard",
+		"url": "https://github.com/Ekristoffe/"
+	},
+	"license": "MIT"
+}
