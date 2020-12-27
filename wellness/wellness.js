@@ -56,33 +56,7 @@ module.exports = function(RED) {
         node.on('input', function (msg) {
 
             const data = parseMessage(node, context, timeoutStatus, msg);
-            /*
-            const _topic = msg.topic.toLowerCase();
-            let _temperature = context.get('temperature') || 20;
-            let _humidity = context.get('humidity') || 20;
-            switch(_topic) {
-                case 'temperature':
-                case 'temp':
-                    _temperature = parseFloat(msg.payload);
-                    clearTimeout(timeoutStatus);
-                    node.status({fill: 'blue', shape: 'dot', text: 'temperature updated'});
-                    timeoutStatus = setTimeout(() => {
-                        node.status({fill: 'green', shape: 'dot', text: ''});
-                    }, 1000);
-                    context.set('temperature', _temperature);
-                    break;
-                case 'humidity':
-                case 'hum':
-                    _humidity = parseFloat(msg.payload);
-                    clearTimeout(timeoutStatus);
-                    node.status({fill: 'blue', shape: 'dot', text: 'humidity updated'});
-                    timeoutStatus = setTimeout(() => {
-                        node.status({fill: 'green', shape: 'dot', text: ''});
-                    }, 1000);
-                    context.set('humidity', _humidity);
-                    break;
-            }
-            */
+
             msg.payload = (0.735 * data._temperature) + (0.0374 * data._humidity) + (0.00292 * data._humidity * data._temperature) - 4.064;
 
             node.send(msg);
@@ -107,33 +81,7 @@ module.exports = function(RED) {
         node.on('input', function (msg) {
 
             const data = parseMessage(node, context, timeoutStatus, msg);
-            /*
-            const _topic = msg.topic.toLowerCase();
-            let _temperature = context.get('temperature') || 20;
-            let _humidity = context.get('humidity') || 20;
-            switch(_topic) {
-                case 'temperature':
-                case 'temp':
-                    _temperature = parseFloat(msg.payload);
-                    clearTimeout(timeoutStatus);
-                    node.status({fill: 'blue', shape: 'dot', text: 'temperature updated'});
-                    timeoutStatus = setTimeout(() => {
-                        node.status({fill: 'green', shape: 'dot', text: ''});
-                    }, 1000);
-                    context.set('temperature', _temperature);
-                    break;
-                case 'humidity':
-                case 'hum':
-                    _humidity = parseFloat(msg.payload);
-                    clearTimeout(timeoutStatus);
-                    node.status({fill: 'blue', shape: 'dot', text: 'humidity updated'});
-                    timeoutStatus = setTimeout(() => {
-                        node.status({fill: 'green', shape: 'dot', text: ''});
-                    }, 1000);
-                    context.set('humidity', _humidity);
-                    break;
-            }
-            */
+
             msg.payload = (0.81 * data._temperature) + (0.01 * data._humidity * ((0.99 * data._temperature) - 14.3)) + 46.3;
 
             node.send(msg);
@@ -159,33 +107,7 @@ module.exports = function(RED) {
         node.on('input', function (msg) {
 
             const data = parseMessage(node, context, timeoutStatus, msg);
-            /*
-            const _topic = msg.topic.toLowerCase();
-            let _temperature = context.get('temperature') || 20;
-            let _humidity = context.get('humidity') || 20;
-            switch(_topic) {
-                case 'temperature':
-                case 'temp':
-                    _temperature = parseFloat(msg.payload);
-                    clearTimeout(timeoutStatus);
-                    node.status({fill: 'blue', shape: 'dot', text: 'temperature updated'});
-                    timeoutStatus = setTimeout(() => {
-                        node.status({fill: 'green', shape: 'dot', text: ''});
-                    }, 1000);
-                    context.set('temperature', _temperature);
-                    break;
-                case 'humidity':
-                case 'hum':
-                    _humidity = parseFloat(msg.payload);
-                    clearTimeout(timeoutStatus);
-                    node.status({fill: 'blue', shape: 'dot', text: 'humidity updated'});
-                    timeoutStatus = setTimeout(() => {
-                        node.status({fill: 'green', shape: 'dot', text: ''});
-                    }, 1000);
-                    context.set('humidity', _humidity);
-                    break;
-            }
-            */
+
             msg.payload = (0.735 * data._temperature) + (0.0374 * data._humidity) + (0.00292 * data._humidity * data._temperature) - 4.064;
 
             node.send(msg);
