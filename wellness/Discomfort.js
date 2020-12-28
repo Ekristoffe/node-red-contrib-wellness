@@ -1,4 +1,4 @@
-let helper = require("./helper");
+let helper = require('./helper');
 
 module.exports = function (RED) {
 
