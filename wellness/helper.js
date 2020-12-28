@@ -6,9 +6,9 @@
 
 function nodeStatus (node, timeoutStatus, fill, shape, text, nextFill, nextShape, nextMessage) {
 
-    node.status({fill: fill, shape: shape, text: text});
+    node.status({fill, shape, text});
     timeoutStatus = setTimeout(() => {
-        node.status({fill: nextFill, shape: nextShape, text: nextMessage});
+        node.status({nextFill, nextShape, nextMessage});
     }, 1000);
 
 }
