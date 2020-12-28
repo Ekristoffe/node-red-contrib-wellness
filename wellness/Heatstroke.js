@@ -1,7 +1,6 @@
 let helper = require("./helper");
 
 module.exports = function (RED) {
-    var settings = RED.settings;
 
     function HeatstrokeIndex(config) {
         RED.nodes.createNode(this, config);

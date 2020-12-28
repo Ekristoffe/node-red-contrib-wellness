@@ -1,5 +1,6 @@
+let helper = require("./helper");
+
 module.exports = function (RED) {
-    var settings = RED.settings;
 
     function DiscomfortIndex(config) {
         RED.nodes.createNode(this, config);
