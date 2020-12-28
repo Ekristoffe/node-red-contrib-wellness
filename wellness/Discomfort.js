@@ -19,7 +19,7 @@ module.exports = function (RED) {
 
             const data = helper.parseMessage(node, context, timeoutStatus, msg);
 
-            msg.payload = (0.81 * _temperature) + (0.01 * _humidity * ((0.99 * _temperature) - 14.3)) + 46.3;
+            msg.payload = (0.81 * data._temperature) + (0.01 * data._humidity * ((0.99 * data._temperature) - 14.3)) + 46.3;
 
             node.send(msg);
         });
