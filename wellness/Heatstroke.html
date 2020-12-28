@@ -1,0 +1,63 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Heatstroke-Index',{
+        category: 'wellness',
+        color: '#F3B567',
+        defaults: {
+            name: {value:""},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "function.svg",
+        label: function() {
+            return this.name||"Heatstroke Index";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="Heatstroke-Index">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="Heatstroke-Index">
+    <p>Heatstroke risk level is determined by air temperature and humidity.</p>
+    <p>
+        Users can estimate the risk of heat while performing day-to-day activities:<br>
+        <table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
+            <thead style="background-color: #3f87a6; color: #fff;">
+                <tr>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Reference<br>temperature<br>WBGT*</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Heat stress precautions</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Awareness guide</td>
+                </tr>
+            </thead>
+            <tbody style="background-color: #e4f0f5;">
+                <tr>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Danger<br>31°C or above<br>(88°F or above)</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for all activities.</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Especially dangerous to senior citizens, even if they are just resting. Avoid going outside and stay indoors in cooler places.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe warning<br>28°C – 31°C<br>(82°F – 88°F)</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for all activities.</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Stay out of the blazing sun and be aware of indoor ambient temperature rise.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warning<br>25°C – 28°C<br>(77°F – 82°F)</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for activities that involve moderate to strenuous physical exercises.</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Take adequate rest periods during physical training and strenuous work.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Caution<br>21°C – 25°C<br>(70°F – 77°F)</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for activities that involve vigorous physical exercises.</td>
+                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Risk is low but still exists on the basis of vigorous exercises and hard labor.</td>
+                </tr>
+            </tbody>
+        </table>
+        <small> *WBGT: The Wet Bulb Globe Temperature is a measure of the heat stress in direct sunlight that
+        can be used to monitor environmental and working conditions and 
+        is the basis for an international standard (e.g. ISO)</small> 
+    </p>
+</script>
