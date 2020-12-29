@@ -37,3 +37,6 @@ function parseMessage (node, context, timeoutStatus, msg) {
         _humidity
     };
 }
+
+exports.nodeStatus = nodeStatus;
+exports.parseMessage = parseMessage;
