@@ -33,8 +33,8 @@ Project Informations
 
 ### - Current version
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/ekristoffe/node-red-contrib-wellness)](https://www.npmjs.com/package/node-red-contrib-wellness)  
-[![NPM download](https://img.shields.io/npm/dm/node-red-contrib-wellness.svg)](http://www.npm-stats.com/~packages/node-red-contrib-wellness)  
-[![NPM download](https://img.shields.io/npm/dw/node-red-contrib-wellness.svg)](http://www.npm-stats.com/~packages/node-red-contrib-wellness)
+[![NPM download](https://img.shields.io/npm/dm/node-red-contrib-wellness.svg)](https://npm-stat.com/?package=node-red-contrib-wellness)  
+[![NPM download](https://img.shields.io/npm/dw/node-red-contrib-wellness.svg)](https://npm-stat.com/?package=node-red-contrib-wellness)
 
 ### - Languages
 [![GitHub language count](https://img.shields.io/github/languages/count/ekristoffe/node-red-contrib-wellness)](README.md)  
