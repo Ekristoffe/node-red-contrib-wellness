@@ -47,5 +47,6 @@ Project Informations
 *   0.0.1 First release  
 *   0.0.2 Update README.md  
 *   0.0.3 Change source folder  
-*   0.0.4 Common function to helper
-*   0.0.5 Naming update
+*   0.0.4 Common function to helper  
+*   0.0.5 Naming update  
+*   0.0.6 Bugfix with node.status

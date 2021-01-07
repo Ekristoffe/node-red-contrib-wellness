@@ -5,12 +5,11 @@
  **/
 
 function nodeStatus (node, timeoutStatus, fill, shape, text, nextFill, nextShape, nextMessage) {
-
+    clearTimeout(timeoutStatus);
     node.status({fill, shape, text});
     timeoutStatus = setTimeout(() => {
         node.status({nextFill, nextShape, nextMessage});
     }, 1000);
-
 }
 
 function parseMessage (node, context, timeoutStatus, msg) {
