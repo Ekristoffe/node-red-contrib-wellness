@@ -15,8 +15,8 @@ function nodeStatus (node, timeoutStatus, fill, shape, text, nextFill, nextShape
 function parseMessage (node, context, timeoutStatus, msg) {
 
     const _topic = msg.topic.toLowerCase();
-    let _temperature = context.get('temperature') || 20;
-    let _humidity = context.get('humidity') || 20;
+    let _temperature = context.get('temperature') || null;
+    let _humidity = context.get('humidity') || null;
     switch(_topic) {
         case 'temperature':
         case 'temp':
