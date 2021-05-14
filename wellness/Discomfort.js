@@ -20,12 +20,12 @@ module.exports = function (RED) {
             const data = helper.parseMessage(node, context, timeoutStatus, msg);
 
             if (data._temperature !== null && data._humidity !== null) {
-                msg.payload = (0.81 * data._temperature) + (0.01 * data._humidity * ((0.99 * data._temperature) - 14.3)) + 46.3;
+                const payload = (0.81 * data._temperature) + (0.01 * data._humidity * ((0.99 * data._temperature) - 14.3)) + 46.3;
 
                 node.send({
                     _msgid: msg._msgid,
                     topic: "DiscomfortIndex",
-                    payload,
+                    payload: payload,
                     _event: msg._event
                 });
             }

@@ -25,7 +25,7 @@ module.exports = function (RED) {
                 node.send({
                     _msgid: msg._msgid,
                     topic: "HeatstrokeIndex",
-                    payload,
+                    payload: payload,
                     _event: msg._event
                 });
             }
