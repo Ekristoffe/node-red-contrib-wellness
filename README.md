@@ -52,4 +52,5 @@ Project Informations
 *   0.0.6 Bugfix with node.status  
 *   0.0.7 Bugfix with filenames  
 *   0.0.8 Bugfix for unknown value  
-*   0.0.9 Bugfix for payload data
+*   0.0.9 Bugfix for payload data  
+*   0.0.10 Add alert msg output + new documentation

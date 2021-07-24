@@ -23,41 +23,101 @@
 
 <script type="text/x-red" data-help-name="Discomfort-Index">
     <p>The discomfort index is calculated from the air temperature and humidity.</p>
-    <p>
-        It help users realize the importance of maintaining a comfortable environment:<br>
-        <table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
-            <thead style="background-color: #3f87a6; color: #fff;">
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Discomfort index</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Thermal comfort</td>
-                </tr>
-            </thead>
-            <tbody style="background-color: #e4f0f5;">
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">85 –</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe heat</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">80 – 85</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Uncomfortably hot (sweating)</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">75 – 80</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warm</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">70 – 75</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Neutral</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">65 – 70</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Comfortable</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">– 65</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Cold</td>
-                </tr>
-            </tbody>
-        </table>
-    </p>
+
+    <h3>Inputs</h3>
+    Enable input processing to allow input payload signals
+    <dl class="message-properties">
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd>if the topic name is temperature or temp the payload will contain the temperature data (parsed from a string to a float)</dd>
+        <dd>if the topic name is humidity or hum the payload will contain the humidity data (parsed from a string to a float)</dd>
+        <dd>if the topic name is something else the payload.temperature will contain the temperature data and the payload.humidity will contain the humidity data  (parsed from a string to a float)</dd>
+        
+        <dt>payload <span class="property-type">string | float</span></dt>
+        <dd>the payload of the message to publish</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd>HeatstrokeIndex</dd>
+        <dt>payload <span class="property-type">string | float</span></dt>
+        <dd>
+            <p>
+                It help users realize the importance of maintaining a comfortable environment:<br>
+                <table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
+                    <thead style="background-color: #3f87a6; color: #fff;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Discomfort index</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Thermal comfort</td>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: #e4f0f5;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">85 –</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe heat</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">80 – 85</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Uncomfortably hot (sweating)</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">75 – 80</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warm</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">70 – 75</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Neutral</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">65 – 70</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Comfortable</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">– 65</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Cold</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </dd>
+        <dt>alert <span class="property-type">string | number</span></dt>
+        <dd>
+            <p>
+                <table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
+                    <thead style="background-color: #3f87a6; color: #fff;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Alert level</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Information</td>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: #e4f0f5;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">4</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe heat</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">3</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Uncomfortably hot</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">2</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warm</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">1</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Neutral</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">0</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Comfortable</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">–1</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Cold</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </dd>
+    </dl>
 </script>   

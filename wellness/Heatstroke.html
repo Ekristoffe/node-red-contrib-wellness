@@ -23,41 +23,102 @@
 
 <script type="text/x-red" data-help-name="Heatstroke-Index">
     <p>Heatstroke risk level is determined by air temperature and humidity.</p>
-    <p>
-        Users can estimate the risk of heat while performing day-to-day activities:<br>
-        <table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
-            <thead style="background-color: #3f87a6; color: #fff;">
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Reference<br>temperature<br>WBGT*</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Heat stress precautions</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Awareness guide</td>
-                </tr>
-            </thead>
-            <tbody style="background-color: #e4f0f5;">
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Danger<br>31°C or above<br>(88°F or above)</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for all activities.</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Especially dangerous to senior citizens, even if they are just resting. Avoid going outside and stay indoors in cooler places.</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe warning<br>28°C – 31°C<br>(82°F – 88°F)</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for all activities.</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Stay out of the blazing sun and be aware of indoor ambient temperature rise.</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warning<br>25°C – 28°C<br>(77°F – 82°F)</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for activities that involve moderate to strenuous physical exercises.</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Take adequate rest periods during physical training and strenuous work.</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Caution<br>21°C – 25°C<br>(70°F – 77°F)</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for activities that involve vigorous physical exercises.</td>
-                    <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Risk is low but still exists on the basis of vigorous exercises and hard labor.</td>
-                </tr>
-            </tbody>
-        </table>
-        <small> *WBGT: The Wet Bulb Globe Temperature is a measure of the heat stress in direct sunlight that
-        can be used to monitor environmental and working conditions and 
-        is the basis for an international standard (e.g. ISO)</small> 
-    </p>
+
+    <h3>Inputs</h3>
+    Enable input processing to allow input payload signals
+    <dl class="message-properties">
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd>if the topic name is temperature or temp the payload will contain the temperature data (parsed from a string to a float)</dd>
+        <dd>if the topic name is humidity or hum the payload will contain the humidity data (parsed from a string to a float)</dd>
+        <dd>if the topic name is something else the payload.temperature will contain the temperature data and the payload.humidity will contain the humidity data  (parsed from a string to a float)</dd>
+        
+        <dt>payload <span class="property-type">string | float</span></dt>
+        <dd>the payload of the message to publish</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd>HeatstrokeIndex</dd>
+        <dt>payload <span class="property-type">string | float</span></dt>
+        <dd>
+            <p>
+                Users can estimate the risk of heat while performing day-to-day activities:<br>
+                <table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
+                    <thead style="background-color: #3f87a6; color: #fff;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Reference<br>temperature<br>WBGT*</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Heat stress precautions</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Awareness guide</td>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: #e4f0f5;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Danger<br>31°C or above<br>(88°F or above)</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for all activities.</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Especially dangerous to senior citizens, even if they are just resting. Avoid going outside and stay indoors in cooler places.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe warning<br>28°C – 31°C<br>(82°F – 88°F)</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for all activities.</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Stay out of the blazing sun and be aware of indoor ambient temperature rise.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warning<br>25°C – 28°C<br>(77°F – 82°F)</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for activities that involve moderate to strenuous physical exercises.</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Take adequate rest periods during physical training and strenuous work.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Caution<br>21°C – 25°C<br>(70°F – 77°F)</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Dangerous heat for activities that involve vigorous physical exercises.</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Risk is low but still exists on the basis of vigorous exercises and hard labor.</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Almost safe<br>Less than 21°C<br>(Less than 70°F)</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Normally, the risk of heat stroke is small, but it is necessary to replenish water and salt as appropriate. </td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Please note that heat stroke will occur even under these conditions in citizen marathons.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <small> *WBGT: The Wet Bulb Globe Temperature is a measure of the heat stress in direct sunlight that
+                can be used to monitor environmental and working conditions and 
+                is the basis for an international standard (e.g. ISO)</small> 
+            </p>
+        </dd>
+        <dt>alert <span class="property-type">string | number</span></dt>
+        <dd>
+            <p>
+                <table style="border-collapse: collapse; border: 2px solid rgb(200, 200, 200); letter-spacing: 1px; font-family: sans-serif; font-size: .6rem; ">
+                    <thead style="background-color: #3f87a6; color: #fff;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Alert level</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Information</td>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: #e4f0f5;">
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">4</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Danger</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">3</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Severe warning</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">2</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Warning</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">1</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Caution</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">0</td>
+                            <td style="border: 1px solid rgb(190, 190, 190); padding: 5px 10px;">Almost safe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </dd>
+    </dl>
 </script>
