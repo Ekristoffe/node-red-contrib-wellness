@@ -20,8 +20,10 @@ module.exports = function (RED) {
             const data = helper.parseMessage(node, context, timeoutStatus, msg);
 
             if (data._temperature !== null && data._humidity !== null) {
-                const payload = (0.81 * data._temperature) + (0.01 * data._humidity * ((0.99 * data._temperature) - 14.3)) + 46.3;
 
+                // https://github.com/xshellinc/smart-sense/blob/master/thi.py
+                const payload = (0.81 * data._temperature) + (0.01 * data._humidity * ((0.99 * data._temperature) - 14.3)) + 46.3;
+                
                 let alert = 0; // Comfortable
                 if (payload >= 85) {
                     alert = 4; // Severe heat
@@ -36,7 +38,7 @@ module.exports = function (RED) {
                 } else {
                     alert = -1; // Cold
                 }
-
+                
                 node.send({
                     _msgid: msg._msgid,
                     topic: "DiscomfortIndex",

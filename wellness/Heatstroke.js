@@ -20,8 +20,10 @@ module.exports = function (RED) {
             const data = helper.parseMessage(node, context, timeoutStatus, msg);
 
             if (data._temperature !== null && data._humidity !== null) {
+                
+                // https://github.com/xshellinc/smart-sense/blob/master/wbgt.py
                 const payload = (0.735 * data._temperature) + (0.0374 * data._humidity) + (0.00292 * data._humidity * data._temperature) - 4.064;
-
+                
                 let alert = 0; // Almost safe
                 if (payload >= 31) {
                     alert = 4; // Danger

@@ -20,7 +20,9 @@ module.exports = function (RED) {
             const data = helper.parseMessage(node, context, timeoutStatus, msg);
 
             if (data._temperature !== null && data._humidity !== null) {
-                const payload = (0.735 * data._temperature) + (0.0374 * data._humidity) + (0.00292 * data._humidity * data._temperature) - 4.064;
+                
+                // https://github.com/xshellinc/smart-sense/blob/master/flu.py
+                const payload = 217 * (6.1078 * Math.pow(10, (7.5 * data._temperature / (data._temperature + 237.3)))) / (data._temperature + 273.15) * data._humidity / 100;
 
                 let alert = 0;
                 if (payload >= 18) {
@@ -32,7 +34,7 @@ module.exports = function (RED) {
                 } else {
                     alert = 3; // Warning
                 }
-
+                
                 node.send({
                     _msgid: msg._msgid,
                     topic: "FluRiskIndex",
